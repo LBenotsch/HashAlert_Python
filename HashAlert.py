@@ -6,12 +6,11 @@ import socket
 
 # Methods
 def send_email(msg_text):
-    fromaddr = ''
-    toaddrs = ''
-    msg = 'Subject: %s\n\n%s' % ("Alert! Miner " + host_name + " has an Issue!", msg_text)
-    username = ''
-    password = ''
-    server = smtplib.SMTP('smtp.gmail.com:587')
+    fromaddr = ''  # Email address the application will send alerts through.
+    toaddrs = ''  # Email address to recieve alerts. Can setup multiple using a list.
+    username = ''  # Email account name. Usually the same as 'fromaddr'
+    password = ''  # Password for the Email account.
+    server = smtplib.SMTP('smtp.gmail.com:587')  # Server for the 'fromaddr' Email address (defualt is gmail).
     server.ehlo()
     server.starttls()
     server.login(username, password)
